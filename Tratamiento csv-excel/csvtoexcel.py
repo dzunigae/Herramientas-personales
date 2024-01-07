@@ -1,7 +1,7 @@
 import pandas as pd
 import os
 
-RUTA = './Tratamiento/assets'
+RUTA = './Tratamiento csv-excel/assets'
 
 def csv_a_excel(RUTA):
     # Listar archivos CSV en la carpeta
