@@ -49,7 +49,7 @@ def moda(data,out,excel):
     bubble_sort_tuplas(touples_list)
 
     #Reporte formato txt
-    with open(out, 'a') as output:
+    with open(out, 'w') as output:
         for i in range(len(touples_list)):
             output.write(touples_list[i][0]+": "+str(touples_list[i][1])+"\n")
 
