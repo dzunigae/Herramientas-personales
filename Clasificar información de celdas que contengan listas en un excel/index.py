@@ -24,26 +24,26 @@ def moda(data,out,excel):
     #Apertura del archivo
     df_input = pd.read_excel(data,header=0)
 
-    #Diccionario de las carreras
-    carreras = {}
+    #Diccionario de los elementos encontrados
+    things = {}
     
-    #Recorrer todas las filas extrayendo la cantidad de veces que aparecen las carreras
+    #Recorrer todas las filas extrayendo la cantidad de veces que aparecen los elementos
     for i in range(len(df_input)):
         ROW = df_input.iloc[i]
-        CARRERAS = ROW[name]
+        OBJECT = ROW[name]
 
         #Si la celda no contiene un nan
-        if not pd.isna(CARRERAS):
-            VALORES = CARRERAS.split(', ')
-            #Rellenar el diccionario con la moda de las carreras
+        if not pd.isna(OBJECT):
+            VALORES = OBJECT.split(', ')
+            #Rellenar el diccionario con la moda de los elementos
             for j in VALORES:
-                if j in carreras:
-                    carreras[j] = carreras[j] + 1
+                if j in things:
+                    things[j] = things[j] + 1
                 else:
-                    carreras[j] = 1
+                    things[j] = 1
 
     #Convertir diccionario en lista de tuplas
-    touples_list = list(carreras.items())
+    touples_list = list(things.items())
 
     #Ordenar de mayor a menor las frecuencias
     bubble_sort_tuplas(touples_list)
@@ -54,11 +54,11 @@ def moda(data,out,excel):
             output.write(touples_list[i][0]+": "+str(touples_list[i][1])+"\n")
 
     #Convertir el diccionario en un data frame
-    keys = list(carreras.keys())
-    values = list(carreras.values())
+    keys = list(things.keys())
+    values = list(things.values())
 
     #Reporte a excel
-    df_reporte_excel = pd.DataFrame(list(zip(keys,values)), columns=['Carrera','Frecuencia'])
+    df_reporte_excel = pd.DataFrame(list(zip(keys,values)), columns=['Elemento','Frecuencia'])
     df_reporte_excel.to_excel(excel,index=False)
 
 moda(data,out,excel)
