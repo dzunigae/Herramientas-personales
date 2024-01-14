@@ -15,4 +15,4 @@ def eliminar_filas_duplicadas(archivo_entrada, archivo_salida):
     print("Filas duplicadas eliminadas correctamente.")
 
 # Reemplaza "archivo_entrada.xlsx" y "archivo_salida.xlsx" con los nombres de tus archivos
-eliminar_filas_duplicadas("entrada.xlsx", "salida.xlsx")
+eliminar_filas_duplicadas("./Tratamiento csv-excel/Convocatorias.xlsx", "./Tratamiento csv-excel/Convocatorias_salida.xlsx")
