@@ -35,8 +35,8 @@ def es_multimedia(archivo):
     return any(archivo.lower().endswith(extension) for extension in extensiones_multimedia)
 
 # Rutas de las carpetas de origen y destino
-carpeta_origen = './Extracción de archivos/assets/Angelica/'
-carpeta_destino_out_normal = './Extracción de archivos/out_normal/'
-carpeta_destino_out_sin_extension = './Extracción de archivos/out_sin_extension/'
+carpeta_origen = './5. Extracción de archivos/assets/Angelica/'
+carpeta_destino_out_normal = './5. Extracción de archivos/out_normal/'
+carpeta_destino_out_sin_extension = './5. Extracción de archivos/out_sin_extension/'
 
 procesar_carpeta(carpeta_origen, carpeta_destino_out_normal,carpeta_destino_out_sin_extension)

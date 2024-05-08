@@ -19,8 +19,8 @@ def ordenar(archivo_entrada, archivo_salida):
         print(f'Error: No se encuentra el archivo {archivo_entrada}')
 
 # Nombre del archivo de entrada y salida
-archivo_entrada = './Ordenar txt/assets/strings.txt'
-archivo_salida = './Ordenar txt/out/strings_out.txt'
+archivo_entrada = './3. Ordenar txt/assets/strings.txt'
+archivo_salida = './3. Ordenar txt/out/strings_out.txt'
 
 # Llamar a la función para ordenar y guardar
 ordenar(archivo_entrada, archivo_salida)

@@ -1,8 +1,8 @@
 import pandas as pd
 
-data = './Clasificar información de celdas que contengan listas en un excel/assets/input.xlsx'
-out = './Clasificar información de celdas que contengan listas en un excel/out/output.txt'
-excel = './Clasificar información de celdas que contengan listas en un excel/out/output.xlsx'
+data = './6. Clasificar información de celdas que contengan listas en un excel/assets/input.xlsx'
+out = './6. Clasificar información de celdas que contengan listas en un excel/out/output.txt'
+excel = './6. Clasificar información de celdas que contengan listas en un excel/out/output.xlsx'
 
 def bubble_sort_tuplas(lista_de_tuplas):
     n = len(lista_de_tuplas)

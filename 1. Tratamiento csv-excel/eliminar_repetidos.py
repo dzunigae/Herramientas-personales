@@ -1,7 +1,7 @@
 import pandas as pd
 import os
 
-RUTA = './Tratamiento csv-excel'
+RUTA = './1. Tratamiento csv-excel'
 
 def eliminar_filas_duplicadas(RUTA):
     # Listar archivos CSV en la carpeta

@@ -1,7 +1,7 @@
 import pandas as pd
 import os
 
-RUTA = './Tratamiento csv-excel'
+RUTA = './1. Tratamiento csv-excel'
 ARCHIVOS_PROBLEMATICOS = []
 
 def csv_a_excel(RUTA):
