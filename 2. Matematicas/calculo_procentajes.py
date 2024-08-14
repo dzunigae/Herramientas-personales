@@ -1,3 +1,5 @@
+#Esto es una prueba
+
 def calcular_porcentaje(numero, total):
     try:
         porcentaje = (numero / total) * 100
