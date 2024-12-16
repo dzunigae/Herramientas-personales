@@ -3,14 +3,14 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.keys import Keys
+from webdriver_manager.chrome import ChromeDriverManager
 import time
 import re
 
-service = Service('./SeleniumDrivers/chromedriver.exe')  # Asegúrate de tener la ruta correcta
-driver = webdriver.Chrome(service=service)
+driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
 
 # Cargar el archivo de Excel
-df = pd.read_excel('./assets/Curriculums.xlsx')
+df = pd.read_excel('./assets/Reporte.xlsx')
 
 # Copia
 df_copia = df.copy()
@@ -40,7 +40,7 @@ def extract_file_id(link):
 
 # Reemplazar los enlaces con los nombres de los archivos
 for index, row in df.iterrows():
-    file_link = row['CV']
+    file_link = row['Adjunte la hoja de vida en formato PDF marcada con su nombre completo y programa curricular.']
     driver.get(file_link)  # Acceder al archivoc
 
     try:

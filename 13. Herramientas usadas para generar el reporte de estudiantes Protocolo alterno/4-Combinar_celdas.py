@@ -3,7 +3,7 @@ from openpyxl import load_workbook
 from openpyxl.utils import get_column_letter
 
 # Cargar el archivo Excel en un DataFrame con pandas
-df = pd.read_excel('./assets/Reporte.xlsx')
+df = pd.read_excel('./out/Reporte_estudiantes_convocatorias.xlsx')
 
 # Guardar DataFrame en un nuevo archivo Excel temporal para poder cargarlo con openpyxl
 df.to_excel('ruta_temporal.xlsx', index=False)

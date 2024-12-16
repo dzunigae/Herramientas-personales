@@ -6,10 +6,10 @@ import re
 RUTA_PDFS_UNIFICADOS = "./pdfs_unificados"
 
 # Ruta de la carpeta Organización de hojas de vida
-RUTA_HOJAS_DE_VIDA = "./Organización Hojas de vida empresas"
+RUTA_HOJAS_DE_VIDA = "./Cvs"
 
 #Dataframe curriculums
-DF_CURRICULUMS = pd.read_excel('./assets/Curriculums_out.xlsx')
+DF_CURRICULUMS = pd.read_excel('./out/Curriculums_out.xlsx')
 
 #Dataframe convocatorias
 DF_CONVOCATORIAS = pd.read_excel('./assets/Hoja de Nuevas Convocatorias.xlsx')
@@ -100,4 +100,4 @@ for clave in PARES_CC_CONVOCATORIAS:
             DF_REPORTE = DF_REPORTE._append(new_row, ignore_index=True)
 
 #Generación del reporte
-DF_REPORTE.to_excel('./out/Reporte.xlsx', index=False)
+DF_REPORTE.to_excel('./out/Reporte_estudiantes_convocatorias.xlsx', index=False)

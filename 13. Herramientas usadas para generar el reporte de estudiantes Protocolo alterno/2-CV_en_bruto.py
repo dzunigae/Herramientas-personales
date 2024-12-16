@@ -2,7 +2,7 @@ import os
 import shutil
 
 # Ruta de la carpeta que contiene las subcarpetas
-carpeta_contenedora = "./Organización Hojas de vida empresas"
+carpeta_contenedora = "./CVs"
 
 # Carpeta donde se copiarán los PDFs
 nueva_carpeta = "./pdfs_unificados"
