@@ -1,3 +1,12 @@
+"""
+Este código recorre de manera recursiva todos los archivos dentro de la carpeta ./4. Recorte de nombres/assets y 
+verifica si alguno de ellos tiene un nombre mayor a 50 caracteres. En caso de que así sea, construye un nuevo nombre 
+que conserva la extensión original del archivo pero limita la parte del nombre a los primeros 50 caracteres. Si ya 
+existe un archivo con ese mismo nombre en el directorio, agrega un sufijo numérico incremental 
+(por ejemplo, _1, _2, etc.) hasta encontrar un nombre único. Finalmente, renombra el archivo con esta nueva ruta, 
+asegurando que no se generen duplicados y que los nombres se mantengan dentro de la longitud permitida.
+"""
+
 import os
 
 directorio = "./4. Recorte de nombres/assets"
