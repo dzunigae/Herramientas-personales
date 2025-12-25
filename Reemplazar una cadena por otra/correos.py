@@ -1,3 +1,13 @@
+# Este script utiliza una interfaz gráfica simple (Tkinter) para solicitar al
+# usuario un número y un archivo de texto (.txt).
+#
+# El contenido del archivo seleccionado se lee y se reemplaza cualquier
+# ocurrencia de la cadena "/4/" por "/#/", donde "#" corresponde al número
+# ingresado por el usuario.
+#
+# El archivo modificado se guarda como un nuevo archivo de texto en la misma
+# carpeta del original y se notifica al usuario sobre el resultado del proceso.
+
 import tkinter as tk
 from tkinter import simpledialog, filedialog, messagebox
 import os

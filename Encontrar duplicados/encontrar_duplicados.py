@@ -1,3 +1,18 @@
+# Este script recorre de forma recursiva un directorio y calcula el hash SHA-256
+# de cada archivo para detectar duplicados reales por contenido.
+#
+# Los hashes y metadatos de los archivos se almacenan en una base de datos SQLite,
+# lo que permite evitar reprocesar archivos ya analizados y reanudar el proceso
+# en caso de interrupción (Ctrl+C).
+#
+# Cuando se detectan archivos con el mismo hash, se registran como duplicados y
+# se genera un reporte consolidado en un archivo Excel con los hashes y las rutas
+# de todos los archivos duplicados encontrados.
+#
+# El script maneja errores de acceso a archivos y permite una detención segura
+# del proceso sin pérdida de progreso.
+
+
 import os
 import hashlib
 import sqlite3

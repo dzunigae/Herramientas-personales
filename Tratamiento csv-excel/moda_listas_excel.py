@@ -1,3 +1,14 @@
+# Este script lee un archivo Excel y analiza una columna cuyos valores contienen
+# listas de elementos separadas por comas. Para cada elemento, calcula cuántas
+# veces aparece en todas las filas (frecuencia / moda).
+# 
+# Los resultados se ordenan de mayor a menor frecuencia mediante un algoritmo
+# bubble sort personalizado y se exportan en dos formatos:
+# 1) Un archivo de texto (.txt) con el conteo de cada elemento.
+# 2) Un archivo Excel (.xlsx) con las columnas "Elemento" y "Frecuencia".
+# 
+# El nombre de la columna a analizar se solicita por consola.
+
 import pandas as pd
 
 data = './6. Clasificar información de celdas que contengan listas en un excel/assets/input.xlsx'

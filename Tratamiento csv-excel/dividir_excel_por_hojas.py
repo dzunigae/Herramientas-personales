@@ -1,3 +1,13 @@
+# Este script recorre una carpeta de entrada en busca de archivos Excel (.xlsx)
+# y procesa cada uno de ellos según la cantidad de hojas que contengan.
+#
+# Si un archivo tiene una sola hoja, se copia íntegramente a la carpeta de salida.
+# Si tiene múltiples hojas, cada hoja se extrae y se guarda como un archivo
+# Excel independiente, usando el nombre del archivo original y el de la hoja.
+#
+# El script valida la existencia de la carpeta de entrada, crea la carpeta de
+# salida si no existe y maneja errores de carga o lectura de archivos y hojas.
+
 import pandas as pd
 import os
 

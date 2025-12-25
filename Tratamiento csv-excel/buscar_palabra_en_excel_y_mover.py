@@ -1,3 +1,14 @@
+# Este script recorre una carpeta de entrada y analiza archivos Excel (.xlsx)
+# para determinar si contienen una palabra clave específica en cualquiera
+# de sus celdas.
+#
+# El contenido de cada archivo se normaliza (minúsculas y sin tildes) para
+# realizar una búsqueda insensible a mayúsculas y acentos.
+#
+# Si el archivo contiene la palabra clave, se mueve automáticamente a una
+# carpeta de salida. El script valida la existencia de carpetas y maneja
+# errores de lectura y movimiento de archivos.
+
 import pandas as pd
 import os
 import shutil

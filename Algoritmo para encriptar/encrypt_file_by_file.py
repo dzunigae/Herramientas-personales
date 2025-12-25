@@ -12,6 +12,23 @@ BLOCK_SIZE = 64 * 1024  # 64 KB
 def derive_key(password: str) -> bytes:
     return password.encode()[:32]  # Usar los primeros 32 bytes de la contraseña
 
+def secure_delete(file_path, block_size=64 * 1024):
+    """Sobrescribe un archivo con datos aleatorios por bloques antes de eliminarlo."""
+    try:
+        file_size = os.path.getsize(file_path)
+        with open(file_path, "r+b") as f:
+            for _ in range(file_size // block_size):
+                f.write(os.urandom(block_size))  # Sobrescribe en bloques
+            remaining_bytes = file_size % block_size
+            if remaining_bytes:
+                f.write(os.urandom(remaining_bytes))  # Sobrescribe el resto
+            f.flush()
+            os.fsync(f.fileno())  # Asegurar escritura en disco
+    except Exception as e:
+        print(f"Error al sobrescribir {file_path}: {e}")
+    finally:
+        os.remove(file_path)  # Eliminar el archivo
+
 # Función para cifrar nombres de archivos
 def encrypt_filename(filename: str, key: bytes) -> str:
     cipher = Cipher(algorithms.AES(key), modes.ECB(), backend=default_backend())
@@ -37,6 +54,8 @@ def encrypt_file(file_path: str, key: bytes):
 
         temp_file_path = file_path + ".enc"
 
+        ultimo_bloque_no_necesita_padding = True
+
         with open(file_path, 'rb') as f_in, open(temp_file_path, 'wb') as f_out:
             # Escribir el IV al principio del archivo cifrado
             f_out.write(iv)
@@ -44,14 +63,26 @@ def encrypt_file(file_path: str, key: bytes):
             # Procesar el archivo en bloques
             while chunk := f_in.read(BLOCK_SIZE):
                 if len(chunk) < BLOCK_SIZE:  # Último bloque
+                    ultimo_bloque_no_necesita_padding = False
                     padder = PKCS7(algorithms.AES.block_size).padder()
                     chunk = padder.update(chunk) + padder.finalize()
 
                 encrypted_chunk = encryptor.update(chunk)
                 f_out.write(encrypted_chunk)
+        
+            if ultimo_bloque_no_necesita_padding:
+                # Definir 16 bytes con el valor 0x10 (16 en decimal)
+                padding_bytes = bytes([16] * 16)
 
+                encrypted_chunk = encryptor.update(padding_bytes)
+
+                # Escribir el padding al final del archivo
+                f_out.write(encrypted_chunk)
+            
             # Finalizar el cifrado
             f_out.write(encryptor.finalize())
+
+        secure_delete(file_path)
 
         # Reemplazar el archivo original por el cifrado
         os.replace(temp_file_path, file_path)
@@ -91,12 +122,7 @@ def encrypt_directory(directory: str, password: str):
             os.rename(dir_path, encrypted_path)
             print(f"Nombre del directorio cifrado: {encrypted_path}")
 
-if __name__ == "__main__":
-    # Solicitar carpeta y contraseña al usuario
-    directory = '.\\17. Algoritmo para encriptar\\Encriptar'
-    ruta_contraseña = '.\\17. Algoritmo para encriptar\\assets\\password.txt'
+def main(directory,ruta_contraseña):
     with open(ruta_contraseña, 'r') as archivo:
         contraseña = archivo.readline().strip()
-
     encrypt_directory(directory, contraseña)
-

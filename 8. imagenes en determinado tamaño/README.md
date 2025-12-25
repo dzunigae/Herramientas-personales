@@ -1,1 +1,0 @@
-Calcular la cantidad de imágenes posibles en determinado tamaño de imagen.

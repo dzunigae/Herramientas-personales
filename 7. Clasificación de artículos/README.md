@@ -1,1 +1,0 @@
-El código se debe modificar dependiendo del formato
