@@ -9,7 +9,7 @@ asegurando que no se generen duplicados y que los nombres se mantengan dentro de
 
 import os
 
-directorio = "./4. Recorte de nombres/assets"
+directorio = "./0.Assets"
 
 # Recorrer todos los directorios y archivos dentro del directorio
 for ruta_directorio, subdirectorios, archivos in os.walk(directorio):
